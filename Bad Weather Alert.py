@@ -1,8 +1,12 @@
 import requests
 from twilio.rest import Client
 
-phone_number = input("Enter Your Phone Number:")
+your_phone_number = input("Enter Your Phone Number:")
+Twillio_Phone_Number = ""
 
+"""
+The credentials for Twilio api have been revoked ...
+"""
 account_sid = "AC38b3552033c6e6a6744220c0211cf12b"
 auth_token = "d0ab22bc0e04128e7d836e1c207bd4dd"
 
@@ -36,7 +40,7 @@ if will_rain:
 	message = client.messages \
 		.create(
 		body="It's going to rain today. Don't forget to bring an umbrella.",
-		from_="+19705368315",
-		to=f"{phone_number}"
+		from_=f"{Twillio_Phone_Number}",
+		to=f"{your_phone_number}"
 	)
 	print(message.status)
