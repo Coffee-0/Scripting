@@ -1,15 +1,12 @@
+import os
 import requests
 from twilio.rest import Client
 
 your_phone_number = input("Enter Your Phone Number:")
-Twillio_Phone_Number = ""
 
-"""
-The credentials for Twilio api have been revoked ...
-"""
-account_sid = "AC38b3552033c6e6a6744220c0211cf12b"
-auth_token = "d0ab22bc0e04128e7d836e1c207bd4dd"
 
+account_sid = os.environ['TWILIO_ACCOUNT_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
 api_key = "30bbb19aad4badf2852e44ab8517fc0d"
 api_endpoint = "https://api.openweathermap.org/data/2.5/onecall"
@@ -35,12 +32,13 @@ for hour_data in weather_slice:
 	if condition_code < 700:
 		will_rain = True
 
+
 if will_rain:
 	client = Client(account_sid, auth_token)
 	message = client.messages \
 		.create(
 		body="It's going to rain today. Don't forget to bring an umbrella.",
-		from_=f"{Twillio_Phone_Number}",
+		from_="+19705368315",
 		to=f"{your_phone_number}"
 	)
 	print(message.status)
