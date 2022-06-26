@@ -8,7 +8,7 @@ your_phone_number = input("Enter Your Phone Number:")
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 
-api_key = "30bbb19aad4badf2852e44ab8517fc0d"
+api_key = "YOUR API KEY HERE"  # Enter Your API Key here!
 api_endpoint = "https://api.openweathermap.org/data/2.5/onecall"
 
 weather_params = {
